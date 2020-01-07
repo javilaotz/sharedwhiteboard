@@ -2,17 +2,17 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap'
 
 import NavBar from './NavBar'
+import WhiteBoard from './Whiteboard'
 
 import './Styles.css'
 
 function Home(props) {
     return (
         <div>
-            <NavBar/>
             <Container className="themed-container" fluid={true}>
                 <Row className="WhiteBoard">
-                    <Col md="10">Whiteboard</Col>
-                    <Col md="2">Users</Col>
+                    <WhiteBoard/>
+                    Users
                 </Row>
                 <Row>
                     <Col>footer</Col>
