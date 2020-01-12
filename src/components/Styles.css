@@ -1,12 +1,8 @@
 .WhiteBoard{
-    height: 800px;
+    height: 900px;
 }
 
-/*CELLS*/
-.cell{
-    height: 10px;
-    width: 10px;
+.canvas{
     background-color: #fff;
-    margin: 0px;
-    padding: 0px;
+    border-style: solid 1px #000;
 }
