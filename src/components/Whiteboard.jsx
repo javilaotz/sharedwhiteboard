@@ -1,16 +1,37 @@
 import React, {useRef, useEffect, useState} from 'react'
-import ReactDOM from "react-dom"
 import json_response from "../mock/response.json"
 
 const Whiteboard = (props) => {
 
+    useEffect(() => {
+        const me        = json_response && json_response.me,
+              users   = json_response && json_response.users,
+              color     = me && me.color
+              
+        plotUsers(users)
+        line = {width: me.width, color: `rgb(${color.r}, ${color.g}, ${color.b})`}
+    })
+
+    const plotUsers = (strokes) => {
+        const context = canvas.current.getContext("2d")
+        strokes.map(stroke => {
+            const strokes  = stroke && stroke.strokes,
+                  color    = stroke && stroke.color
+
+            line = {width: stroke.width, color: `rgb(${color.r}, ${color.g}, ${color.b})`}
+            strokes.map(point => {
+                context.fillStyle = line.color 
+                context.fillRect(point.x,point.y,line.width,line.width)
+            })
+        })
+    }
+
     const [isMouseDown, setIsMouseDown] = useState(false);
-    let pos = {x :0, y:0}
+    let pos     = {x :0, y:0},
+        line    = {}    
     
     const size = 500, /* Area of whiteboard*/
-          canvas = useRef(null),
-          line = {width : 1, color : '#ff0000'},
-          resp = json_response && json_response
+          canvas = useRef(null)
     
     const startDrawing = (e, pos) => {
         setIsMouseDown(true)
