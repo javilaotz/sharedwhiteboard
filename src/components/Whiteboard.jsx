@@ -10,7 +10,7 @@ const Whiteboard = (props) => {
               
         plotUsers(users)
         line = {width: me.width, color: `rgb(${color.r}, ${color.g}, ${color.b})`}
-    })
+    },)
 
     const plotUsers = (strokes) => {
         const context = canvas.current.getContext("2d")

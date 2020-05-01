@@ -6,12 +6,12 @@ import WhiteBoard from './Whiteboard'
 
 import './Styles.css'
 
-function Home(props) {
+const Home = (props) => {
     return (
         <div>
             <Container className="themed-container" fluid={true}>
                 <Row className="WhiteBoard">
-                    <WhiteBoard/>
+                    <WhiteBoard />
                     <Users/>
                 </Row>
                 <Row>
